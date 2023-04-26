@@ -4,5 +4,6 @@ using Products.Domain.Entities;
 namespace Products.Domain.Contracts;
 public interface IProductsHandler
 {
-    Task<IEnumerable<ProductsDto>> GetProductItems();
+    Task<IEnumerable<ProductDto>> GetProducts();
+    Task<AbstractProduct> GetProduct(int id);
 }

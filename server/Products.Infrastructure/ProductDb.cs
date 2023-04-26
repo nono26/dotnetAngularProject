@@ -11,6 +11,7 @@ public class ProductDb : DbContext
     public ProductDb(DbContextOptions<ProductDb> options)
         : base(options)
     {
+
     }
 
     public DbSet<ProductItem> Products => Set<ProductItem>();

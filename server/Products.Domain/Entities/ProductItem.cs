@@ -1,4 +1,4 @@
 namespace Products.Domain.Entities;
 
-public record ProductItem(int id, string name, int price, int priceVAT);
+public record ProductItem(int id, string name, int price, int priceVAT, bool isFoodProduct);
 

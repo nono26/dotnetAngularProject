@@ -9,7 +9,7 @@ using Products.Domain.Entities;
 
 namespace ProductsAPI.Controllers;
 
-[Route("Products")]
+[Route("Product")]
 [ApiController]
 public class ProductController : ApiControllerBase
 {
@@ -21,9 +21,20 @@ public class ProductController : ApiControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<ProductsDto>>> GetProducts()
+    [Route("All")]
+    public async Task<ActionResult<IEnumerable<ProductDto>>> GetProducts()
     {
-        var productsItem = await _handler.GetProductItems();
+        var productsItem = await _handler.GetProducts();
+        return Ok(productsItem);
+    }
+
+    [HttpGet]
+    [Route("{id}")]
+    public async Task<ActionResult<IEnumerable<ProductDto>>> GetProduct(int id)
+    {
+        var productsItem = await _handler.GetProduct(id);
+        if (productsItem is NullProductDto)
+            return NotFound();
         return Ok(productsItem);
     }
 

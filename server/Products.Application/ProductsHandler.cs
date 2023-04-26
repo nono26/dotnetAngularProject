@@ -12,8 +12,14 @@ public class ProductsHandler : IProductsHandler
     {
         _gateway = gateway;
     }
-    public async Task<IEnumerable<ProductsDto>> GetProductItems()
+
+    public async Task<AbstractProduct> GetProduct(int id)
     {
-        return await _gateway.GetProductsItems();
+        return await _gateway.GetProductDto(id);
+    }
+
+    public async Task<IEnumerable<ProductDto>> GetProducts()
+    {
+        return await _gateway.GetProductsDto();
     }
 }

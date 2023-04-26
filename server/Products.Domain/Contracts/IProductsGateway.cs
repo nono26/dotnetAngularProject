@@ -9,5 +9,6 @@ namespace Products.Domain.Contracts;
 
 public interface IProductsGateway
 {
-    Task<IEnumerable<ProductsDto>> GetProductsItems();
+    Task<IEnumerable<ProductDto>> GetProductsDto();
+    Task<AbstractProduct> GetProductDto(int id);
 }
